@@ -1,0 +1,156 @@
+.react-calendar { 
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    background-color: #fff;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+   }
+   .react-calendar__viewContainer {
+    height: 100%;
+   }
+   .react-calendar__month-view {
+    height: 100%;
+   }
+   .react-calendar__month-view__days {
+    display: flex;
+    flex-wrap: wrap;
+    height: 350px;
+   } 
+
+   .react-calendar__navigation button {
+    color: #6f48eb;
+    min-width: 44px;
+    background: none;
+    font-size: 16px;
+    margin-top: 8px;
+   }
+   .react-calendar__navigation button:enabled:hover,
+   .react-calendar__navigation button:enabled:focus {
+    background-color: #f8f8fa;
+   }
+   .react-calendar__navigation button[disabled] {
+    background-color: #f0f0f0;
+   }
+   abbr[title] {
+    text-decoration: none;
+   }
+   /* .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+   } */
+   .react-calendar__tile:enabled:hover,
+   .react-calendar__tile:enabled:focus {
+    background: #f8f8fa;
+    color: #6f48eb;
+    border-radius: 6px;
+   }
+   .react-calendar__tile--now {
+    background: #6f48eb33;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #6f48eb;
+   }
+   .react-calendar__tile--now:enabled:hover,
+   .react-calendar__tile--now:enabled:focus {
+    background: #6f48eb33;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #6f48eb;
+   }
+   .react-calendar__tile--hasActive:enabled:hover,
+   .react-calendar__tile--hasActive:enabled:focus {
+    background: #f8f8fa;
+   }
+   .react-calendar__tile--active {
+    background: #6f48eb;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+   }
+   .react-calendar__tile--active:enabled:hover,
+   .react-calendar__tile--active:enabled:focus {
+    background: #6f48eb;
+    color: white;
+   }
+   .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #f8f8fa;
+   }
+   .react-calendar__tile--range {
+    background: #f8f8fa;
+    color: #6f48eb;
+    border-radius: 0;
+   }
+   .react-calendar__tile--rangeStart {
+    border-radius: 6px;
+    background: #6f48eb;
+    color: white;
+   }
+   .react-calendar__tile--rangeEnd {
+    border-radius: 6px;
+    background: #6f48eb;
+    color: white;
+   }
+
+.form-modal {
+    position: absolute; /* position the modal relative to the viewport */
+    z-index: 1; /* set z-index to ensure the modal appears on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+     overflow: hidden;
+    /* allow scrolling when modal content exceeds viewport */
+    background-color: rgba(0, 0, 0, 0.4); /* add a semi-transparent black overlay */
+}
+/* '.form-modal::before,.form-modal::after  {
+        content:'';
+        position: absolute;
+        bottom: -5%;
+        left: -5%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg,transparent,#45f3ff,#45f3ff);
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        }
+    
+  @keyframes animate{
+  0%
+  {
+  transform: rotate(0deg);
+  }
+  100%
+  {
+  transform: rotate(360deg);
+  }
+  }' */
+
+     /* @keyframes animate{
+     0%
+     {
+     background-position: 0 0;
+     }
+     50%
+     {
+     background-position: 400% 0;
+     }
+     100%
+     {
+     background-position: 0 0;
+     }
+     }  */
+    
+ 
+  
+.form-modal-content {
+    background-color: #fefefe; /* set background color for modal content */
+    margin: 10% auto; /* center modal vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* set width for modal content */
+    overflow: hidden;
+    
+}

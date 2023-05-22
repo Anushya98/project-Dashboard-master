@@ -1,0 +1,172 @@
+.app {
+  background-color: white;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+
+.topbar {
+  /* background: linear-gradient(110deg,#2193b0,  #6dd5ed); */
+  /* background: linear-gradient(110deg,#cc2b5e, #753a88); */
+  background: white;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  z-index: 2;
+  transition: width, left, right, 0.3s;
+  border-bottom: 2px solid #e68728;
+}
+
+.topbar.sidebar-collapsed {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar-btn {
+  color: #ed4264;
+}
+
+.sidebar {
+  display: flex;
+  z-index: 1001;
+  box-shadow: 0 0.75rem 1.5rem rgba(219, 231, 246, 0.03);
+  position: fixed;
+  top: 2px;
+  left: 2px;
+  height: 99.2%;
+  width: 250px;
+}
+
+
+.main {
+  position: absolute;
+  width: calc(100% - 250px);
+  left: 250px;
+  min-height: 100vh;
+  /* background: rgb(237, 236, 236); */
+  transition: width, left, right, 0.3s;
+  overflow-x: hidden;
+
+}
+
+.main.sidebar-collapsed {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+
+@media (max-width: 991px) {
+  .sidebar {
+    width: 80px;
+    /* left: -250px; */
+  }
+
+  .topbar {
+    width: 100%;
+    left: 0;
+    height: 60px;
+  }
+
+  /* .pro-sidebar.collapsed {
+    width: 300px;
+    left: 0px;
+  }
+   */
+  .main {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* 
+@media all and (min-width: 768px) {
+  .topbar {
+    left: 250px;
+  }
+} */
+.content {
+  padding: 50px;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .content {
+    padding: 20px;
+  }
+}
+
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover {
+  background-color: transparent !important;
+}
+
+a:hover {
+  color: #ff718e !important;
+  text-decoration: none;
+  transition: none !important;
+}
+
+@media screen and (max-width: 992px) {
+  .css-4432z8 {
+    height: 35px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+    font-size: 8px !important;
+  }
+
+  .css-4432z8 {
+    width: 150px !important;
+    height: 40px !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .css-4432z8 {
+    width: 150px !important;
+    height: 30px !important;
+  }
+}
+
+.pagination .page-item.active .page-link:hover {
+  background: darksalmon !important;
+}
+
+.pagination .page-item.active .page-link {
+  background: darksalmon !important;
+}
+
+.page-item:first-child .page-link {
+  margin-right: 50px;
+}
+
+
+div.Project:nth-child(even) {
+  background-image: radial-gradient(circle 588px at 31.7% 40.2%, rgba(225, 200, 239, 1) 21.4%, rgba(163, 225, 233, 1) 57.1%);
+  ;
+}
+
+div.Project:nth-child(odd) {
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 229, 168, 1) 0%, rgba(251, 174, 222, 1) 100.7%);
+}
+
+.btn.btn-sm {
+  margin-top: -10px;
+}
+
+div.Tasks:nth-child(even) {
+  background-image: radial-gradient(circle 588px at 31.7% 40.2%, rgba(225, 200, 239, 1) 21.4%, rgba(163, 225, 233, 1) 57.1%);
+}
+
+div.Tasks:nth-child(odd) {
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 229, 168, 1) 0%, rgba(251, 174, 222, 1) 100.7%);
+}
+@media screen and (max-width: 768px){
+.form-top{
+     font-size: 15px!important;
+}
+}
