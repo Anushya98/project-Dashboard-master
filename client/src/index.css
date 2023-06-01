@@ -1,3 +1,14 @@
 *{
-    font-family: "Poppins",sans-serif;
+    /* font-family: "Poppins",sans-serif; */
+    font-family: 'Nunito', sans-serif;
+}
+
+:root{
+    /* --gradient-purple-color:  linear-gradient(130deg, #667eea, #bf80ff, #764ba2);
+    --gradient--yellow-color:  linear-gradient(130deg, #ffedbc, #fbb2c1, #ed4264);
+    --gradient--orange-color:  linear-gradient(130deg, #ffe259, #fdc38a, #ffa751); */
+    --gradient-purple-color:  linear-gradient(130deg, #4666f3, #4b63cc, #09249c);
+    --gradient--yellow-color:  linear-gradient(130deg, #E60965, #bf06b0,#9D0191);
+    --gradient--orange-color:  linear-gradient(130deg, #256D85, #6bbcb1, #53cfbf);
+    --gradient-sidebar-color: linear-gradient(45deg,#4666f3, #4b63cc, #09249c,#E60965, #bf06b0,#9D0191,  #256D85, #6bbcb1, #53cfbf);
 }

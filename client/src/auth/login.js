@@ -5,7 +5,8 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./Login.css"; 
+
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -28,12 +29,15 @@ const Login = ({ history }) => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
+      // localStorage.removeItem("username");
     }
   }, [dispatch, isAuthenticated, error, history]);
 
   const submitHandler = (e) => {
     console.log("Successfully logged in", e);
     e.preventDefault();
+    // localStorage.getItem("username");
+
     dispatch(login({ email, password }));
   };
 

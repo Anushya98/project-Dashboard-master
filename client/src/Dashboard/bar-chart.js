@@ -33,16 +33,16 @@ const activeData = new Array(12).fill(0);
           {
             label: "Active Projects",
             data: activeData,
-            backgroundColor: "#764ba2",
-            borderColor: "#fbb2c1",
+            backgroundColor: "#7DA0FA",
+            borderColor: "#7DA0FA",
             borderWidth: 0.5,
             
           },
           {
             label: "Completed Projects",
             data: completedData,
-            backgroundColor: "#ffa751",
-            borderColor: "#fbb2c1",
+            backgroundColor: "#4B49AC",
+            borderColor: "#4B49AC",
             borderWidth: 0.5,
           },
         ],
@@ -62,7 +62,7 @@ const activeData = new Array(12).fill(0);
       <div style={{ maxWidth: "100%", marginTop: "2%" }}>
         <Bar
           data={chartData}
-          height={400}
+          height={350}
           width={"100%"}
           options={{
             maintainAspectRatio: false,

@@ -6,13 +6,14 @@ const src = path.join(__dirname, "views");
 app.use(express.static(src));
 var uuid = require("uuid-random");
 
-let projectId = " react-node-381416 "; // Get this from Google Cloud
+let projectId = " project-dashboard-386806  "; // Get this from Google Cloud
 let keyFilename = path.join(__dirname, "../google-cloud-stroage-key.json"); // Get this from Google Cloud -> Credentials -> Service Accounts
 const storage = new Storage({
   projectId,
   keyFilename,
 });
-const bucket = storage.bucket("stroage-react-bucket"); // Get this from Google Cloud -> Storage
+  
+const bucket = storage.bucket("dash1-files"); // Get this from Google Cloud -> Storage
 
 const upload = (req, res) => {
   try {

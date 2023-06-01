@@ -10,7 +10,7 @@ import {
 //import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../actions/userActions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import "./Login.css";
 
 const Register = ({ history }) => {
@@ -18,7 +18,8 @@ const Register = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-
+  const [redirect,setRedirect] = useState(false);
+  
   //  const alert = useAlert();
   const dispatch = useDispatch();
 
@@ -34,17 +35,28 @@ const Register = ({ history }) => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
+      localStorage.removeItem("username");
     }
   }, [dispatch, isAuthenticated, error, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("register", e);
+    localStorage.setItem("username", name);
     dispatch(register({ name, email, password, role }));
     //window.alert($(e.target.name), 'is registered')
     //window.location.reload();
   };
+  if (dispatch.status === 200) {
+    alert('registration successful');
+    setRedirect(true)
+  }
+  //  else {
+  //   alert('Already have an account or not successful');
+  // }
 
+if (redirect) {
+return <Navigate to={'/login'} /> }
   return (
     <div
       className="form"

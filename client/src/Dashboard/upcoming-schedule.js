@@ -38,9 +38,13 @@ const UpcomingSchedule = () => {
   //calendar.addEventListener('dateClick', handleDateClick);
 
   return (
-    <div style={{ marginTop: "3%"}}>
-      <h2>Upcoming Schedules</h2>
+    <div   class= "col-xl-12" style={{ marginTop:"30px" }}>
+    <div class="card card-height-100">
+        <div class="card-header d-flex align-items-center" >
+            <h4 class="card-title flex-grow-1 mb-0"> Upcoming Schedule</h4>
+            </div>
       <Calendar onChange={onChange} value={value} onClickDay={handleDateClick} style={{ width: '100%'}} />
+    </div>
     </div>
   );
 }

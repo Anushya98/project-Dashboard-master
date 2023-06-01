@@ -9,7 +9,8 @@
     cursor: pointer;
   }
   .page-active {
-    background: linear-gradient(130deg,#667eea, #bf80ff, #764ba2);
+    /* background: linear-gradient(130deg, #E60965, #bf06b0,#9D0191); */
+    background:#7978E9;
     border-radius: 50%;
   }
   .page-item {
@@ -35,5 +36,5 @@
     vertical-align: middle !important;
   }
 tr{
-  border: #f764a1;
+  border: #7978E9;
 }

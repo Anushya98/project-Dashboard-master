@@ -53,7 +53,7 @@ const Donutchart = () => {
         series={[chartData,chartData1,chartData2,chartData3]}
         options={{
              labels:['Active', 'Completed', 'Overdue',' cancelled'],
-             colors: ["#FFABAB", "#E11299" , "#FEDEFF" , "#A61F69"],
+             colors: ["#09249c", "#7978E9" , "#53cfbf" , "#9D0191"],
              legend:{
                 show: false,
                 position:'bottom',

@@ -16,7 +16,7 @@
   width: calc(100% - 250px);
   z-index: 2;
   transition: width, left, right, 0.3s;
-  border-bottom: 2px solid #e68728;
+  border-bottom: 2px solid #7978E9;
 }
 
 .topbar.sidebar-collapsed {
@@ -25,7 +25,7 @@
 }
 
 .topbar-btn {
-  color: #ed4264;
+  color: #4B49AC;
 }
 
 .sidebar {
@@ -87,7 +87,7 @@
   }
 } */
 .content {
-  padding: 50px;
+  padding: 0 50px 50px 50px;
   margin-top: 80px;
   z-index: 1;
 }
@@ -103,7 +103,7 @@
 }
 
 a:hover {
-  color: #ff718e !important;
+  color:#4B49AC !important;
   text-decoration: none;
   transition: none !important;
 }

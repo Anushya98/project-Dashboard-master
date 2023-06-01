@@ -66,7 +66,7 @@ const Charts = () => {
      {/* <!-- end card header --> */}
 
      <div class="card-body" >
-      <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}> 
+      <div style={{display:"flex", justifyContent:"center", alignItems:"center",height:"220px"}}> 
      <Donutchart />
      
      </div>
@@ -74,7 +74,7 @@ const Charts = () => {
              <div class="d-flex justify-content-between border-bottom border-bottom-dashed ">
                  <p class="fw-medium mb-0">
                   <svg style={{marginRight:"15px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" margin="10">
-                  <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="rgba(255,171,171,1)"></path>
+                  <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#09249c"></path>
                  </svg>
                    Active Projects</p>
                  <p className="card-figure">{chartData}</p>
@@ -82,7 +82,7 @@ const Charts = () => {
              {/* <!-- end --> */}
              <div class="d-flex justify-content-between border-bottom border-bottom-dashed "> <p class="fw-medium mb-0 ">
              <svg  style={{marginRight:"15px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
-              <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="rgba(225,18,153,1)">
+              <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#7978E9">
               </path></svg>
                Completed Projects</p>
                  <div>
@@ -92,7 +92,8 @@ const Charts = () => {
              {/* <!-- end --> */}
              <div class="d-flex justify-content-between border-bottom border-bottom-dashed ">
                  <p class="fw-medium mb-0">
-                 <svg  style={{marginRight:"15px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="rgba(254,222,255,1)">
+                 <svg  style={{marginRight:"15px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"></path>
+                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#53cfbf">
                   </path></svg>
                  Overdue Projects </p>
                  <div>
@@ -102,7 +103,7 @@ const Charts = () => {
              {/* <!-- end --> */}
              <div class="d-flex justify-content-between ">
                  <p class="fw-medium mb-0"> <svg style={{marginRight:"15px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
-                  <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="rgba(166,31,105,1)">
+                  <path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#9D0191">
                   </path></svg>
                   Cancelled Projects</p>
                  <div>

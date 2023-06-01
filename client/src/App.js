@@ -21,6 +21,7 @@ import "./App.css";
 import ProjectList from "./pages/ProjectList/project-list";
 import TaskList from "./pages/TaskList/task-list";
 import TaskCreate from "./pages/task";
+import CreateCompany from "./auth/company";
 
 const token = localStorage.getItem("token");
 const config = {
@@ -100,6 +101,7 @@ function App() {
                   <Route path="/dashboard" element={<TopTotal />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/password/forgot" element={<ForgotPassword />} />
+                  <Route path="/company" element= {<CreateCompany/>}/>
                 </Routes>
               </div>
             </div>

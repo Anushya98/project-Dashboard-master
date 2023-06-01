@@ -47,6 +47,7 @@ const Topbar = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
+    localStorage.removeItem("username");
     navigate("/");
     window.location.reload();
   };
@@ -61,6 +62,7 @@ const Topbar = () => {
       });
   }, []);
   console.log(currentUser);
+  const username = localStorage.getItem("username");
   return (
     <Box
       sx={{
@@ -109,6 +111,16 @@ const Topbar = () => {
         <IconButton>
           <PersonOutlinedIcon style={{ color: 'white'}}/>
         </IconButton> */}
+        <div style={{
+            color: "black",
+            fontSize: "20px",
+            alignItems:"center",
+            justifyContent:"center",
+            display:"flex"
+            //fontFamily: 'Poppins'
+          }}>
+        ({username})
+        </div>
         <div > 
         <IconButton
           to="/adduser"

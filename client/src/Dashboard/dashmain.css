@@ -6,10 +6,11 @@
 }
 
 .row {
-   margin-left: 0 !important;
-   margin-right: 0 !important;
-   justify-content: space-evenly;
+   margin-left: -12px!important;
+    /*margin-right: none !important;
+   justify-content: space-evenly; */
    padding-top: 15px;
+   gap: 5%;
 }
 
 .form-check-input[type=checkbox] {
@@ -19,7 +20,7 @@
 .Cardbox {
    /* background: linear-gradient(130deg, #cc2b5e, #f6c2d2, #e7bff4, #753a88); */
    /* background: linear-gradient(130deg,#2193b0 , #c8e6ec, #6dd5ed); */
-   background: linear-gradient(130deg, #667eea, #bf80ff, #764ba2);
+   background:#7DA0FA ;
    background-size: 200% 200%;
    animation: changebg 12s linear .8s infinite;
    border-radius: 15px;
@@ -28,18 +29,31 @@
 }
 
 .Cardbox1 {
-   background: linear-gradient(130deg, #ffedbc, #fbb2c1, #ed4264);
+   background:#4B49AC;
    background-size: 200% 200%;
    animation: changebg 12s linear .8s infinite;
    border-radius: 15px;
 }
 
 .Cardbox2 {
-   background: linear-gradient(130deg, #ffe259, #fdc38a, #ffa751);
+   background: #7978E9;
    background-size: 200% 200%;
    animation: changebg 12s linear .8s infinite;
    border-radius: 15px;
 }
+.Cardbox :hover{
+   background:#96b2fb;
+   border-radius: 15px;
+}
+.Cardbox1 :hover{
+   background:#5050b2;
+   border-radius: 15px;
+}
+.Cardbox2 :hover{
+   background:#8f8eed;
+   border-radius: 15px;
+}
+
 
 @keyframes changebg {
    0% {
@@ -60,9 +74,13 @@
 
 }
 
-.text-muted {
-   color: #050607 !important;
+.cards > p{
+   color: white;
 }
+
+/* .text-muted {
+   color: #050607 !important;
+} */
 
 .task {
    display: grid;
@@ -73,7 +91,10 @@
 .Tasktable {
    padding-left: 30px;
 }
-
+.charts{
+   display: grid;
+   grid-template-columns: 60% auto;
+}
 .project {
    display: grid;
    grid-template-columns: 60% auto;
@@ -107,8 +128,13 @@
    }
 }
 
-@media (max-width:1200px) {
+@media (max-width:992px) {
    .project {
+      display: grid;
+      grid-template-columns: 100%;
+      row-gap: 1rem;
+   }
+   .charts {
       display: grid;
       grid-template-columns: 100%;
       row-gap: 1rem;
@@ -143,3 +169,23 @@ table.dataTable thead {
 table.dataTable tfoot {
    display: none;
 }
+.svg-color-1{
+ background-color: #778cec;
+ border-radius: 50%;
+ width: 45px;
+ height: 45px;
+}
+
+.svg-color-2{
+   background-color: #7474d5;
+   border-radius: 50%;
+   width: 45px;
+   height: 45px;
+  }
+
+  .svg-color-3{
+   background-color: #b1b0ff;
+   border-radius: 50%;
+   width: 45px;
+   height: 45px;
+  }
