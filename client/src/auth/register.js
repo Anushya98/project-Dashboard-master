@@ -56,7 +56,7 @@ const Register = ({ history }) => {
   // }
 
 if (redirect) {
-return <Navigate to={'/login'} /> }
+return <Navigate to={'/'} /> }
   return (
     <div
       className="form"

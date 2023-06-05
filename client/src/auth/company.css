@@ -1,0 +1,272 @@
+.companyform {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 1500px;
+    padding: 40px;
+    margin-top: 3%;
+    /* margin-left: 32.5%; */
+    background: #1c1c1c;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+    /* margin-right: 250px; */
+  }
+ 
+  .companyform::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: auto;
+    height: 1500px;
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+  }
+ 
+  .companyform::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: auto;
+    height: 1500px;
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+  }
+ 
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+ 
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+ 
+  .company-box {
+    position: absolute;
+    inset: 2px;
+    border-radius: 20px;
+    background: #28292d;
+    z-index: 10;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .company-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+  }
+ 
+  .company-box .admin-box {
+    position: relative;
+  }
+ 
+  .company-box .admin-box .input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    /* border: 1px solid #fff; */
+    outline: none;
+    background: transparent;
+  }
+ 
+  .company-box .admin-box label {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+ 
+  .company-box .admin-box input:focus~label,
+  .company-box .admin-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 16px;
+  }
+ 
+  .companyform .btn {
+    background-color: #45f3ff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    text-align: center;
+    color: #1c1c1c;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+ 
+  .companyform .btn:hover {
+    opacity: 0.8;
+  }
+ 
+  .upload-container {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    margin:50px 200px;
+    border: 2px dashed white;
+    height: 150px;
+ 
+  }
+ 
+  .upload-text {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   /* background-color: lightgray; */
+   padding: 10px;
+   cursor: pointer;
+   height: 100%;
+   color: white;
+ }
+ .upload-file {
+   font-size: 20px;
+   font-weight: bold;
+ }
+ /* .image-upload{
+   margin: 20px 200px;
+   height: 100px;
+   border: 1px solid white;
+ } */
+
+ .companyform .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-color: #45f3ff!important;
+ }
+ .companyform .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+    border-color: #fff!important;
+ }
+ .companyform .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+    border-color: #fff!important;
+ }
+ 
+ /* .checkbox-container input[type="checkbox"] {
+  display: none;
+} */
+
+/* .checkbox-container input[type="checkbox"] + label {
+   position: relative;
+  /* padding-left: 35px; */
+  /* cursor: pointer; */ 
+  /* display: block;
+  margin: 5px;
+}
+
+.checkbox-container input[type=checkbox] + label::before {
+  content: "\2714";
+  position: absolute; */
+  /* left: 0; */
+  /* top: 0;  */
+  /* display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  margin-right: 5px;
+  vertical-align: bottom;
+  color:transparent;
+  border: 2px solid #ffffff;
+  /* background-color: #222222; */
+  /* border-radius: 3px; */
+/* }
+
+.checkbox-container input[type=checkbox]:checked + label::before {
+  background-color: mediumseagreen;
+  border-color: mediumseagreen;
+  color: #fff;
+}
+
+.checkbox-container input[type="checkbox"] + label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px; */
+  /* background-color: #ffffff; */
+  /* opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::after {
+  opacity: 1; */
+
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .checkbox-row {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+  
+  .checkbox-container div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-container label {
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    /* transform: scale(1.5); */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* background-color: #ffffff; /* Change to your desired color 
+    border-radius: 3px;
+    width: 16px;
+    height: 16px; */
+    outline: none;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .checkbox-container input[type="checkbox"]::before {
+    content: "\2714";
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    background-color: white; /* Change to your desired color */
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    color: transparent;
+  }
+  
+  .checkbox-container input[type="checkbox"]:checked::before {
+    background-color: #ffffff; /* Change to your desired color */
+    color:black
+  }

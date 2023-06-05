@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, TextField, Typography, Select, Checkbox, FormControlLabel, FormGroup, MenuItem, } from "@mui/material";
+import { Button, TextField, Typography, Select, Checkbox, FormControlLabel, FormGroup, MenuItem, FormLabel } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import "../assets/adduser.css";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import "./company.css"
 
 const Swal = require("sweetalert2");
 
@@ -24,37 +24,62 @@ const CreateCompany = () => {
         companyName: "",
         branches: "",
         employees: "",
+        companyAddress: "",
+        email1: "",
+        email2: "",
+        logo: null
+
     });
     const [role, setRole] = useState([]);
-    const [email1, setEmail1] = useState(" ");
-    const [email2, setEmail2] = useState(" ");
+    // const [email1, setEmail1] = useState(" ");
+    // const [email2, setEmail2] = useState(" ");
 
     const navigate = useNavigate();
+    const [file, setFile] = useState(null);
 
-    const { companyName, logo, branches, employees } = input;
+    const {
+        companyName,
+        logo,
+        branches,
+        employees,
+        companyAddress,
+        email1,
+        email2,
+
+    } = input;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('companyName', companyName);
-        formData.append('logo', logo);
+        // formData.append('companyName', companyName);
+        // formData.append('logo', logo);
+        console.log("file", file);
+        formData.append("file", file);
         formData.append('role', JSON.stringify(role));
         axios
-            .post("http://localhost:5000/organisation", formData)
+            .post("http://localhost:5000/organisation/upload", formData)
+            .then((file) => {
+                const data = file.data;
+                axios
+                    .post(
+                        "http://localhost:5000/organisation",
+                        { ...input, fileUrl: data.url },
+                    )
+                    .then((res) => {
+                        Swal.fire("Success!", "You add the companyname!", "success");
+                        console.log(res);
+                        localStorage.setItem("orgId", res.data.org._id);
+                        navigate("/register");
 
-            .then((res) => {
-                Swal.fire("Success!", "You add the companyname!", "success");
-                console.log(res);
-                localStorage.setItem("orgId", res.data.org._id);
-                navigate("/register");
-
-            })
-            .catch((err) => {
-                if (err instanceof Error) {
-                    Swal.fire("Not Working!", `${err.message}`, "danger");
-                }
-                console.log(err);
-            })
+                    })
+                    .catch((err) => {
+                        if (err instanceof Error) {
+                            Swal.fire("Not Working!", `${err.message}`, "danger");
+                        }
+                        console.log(err);
+                    })
+            }
+            )
             .catch((error) => {
                 if (error instanceof Error) {
                     Swal.fire("Not Working!", `${error.message}`, "danger");
@@ -64,12 +89,22 @@ const CreateCompany = () => {
             ...input,
             companyName: "",
             logo: null,
+            email1: "",
+            email2: "",
+            companyAddress: "",
+            branches: "",
+            employees: ""
         });
         setRole([]);
     };
 
 
     const handleChange = (e) => {
+        e.preventDefault();
+        setInput((prev) => {
+            return { ...prev, [e.target.name]: e.target.value };
+        });
+        console.log(input);
         // e.preventDefault();
         // setInput((prev) => {
         //   return { ...prev, [e.target.name]: e.target.value };
@@ -77,17 +112,17 @@ const CreateCompany = () => {
         //     setInput({ ...input, [e.target.name]: e.target.value })
         //     console.log(input);
         // };
-        const { name, value } = e.target;
-        if (name === "email1") {
-            setEmail1(value);
-        } else if (name === "email2") {
-            setEmail2(value);
-        } else {
-            setInput((prevInput) => ({
-                ...prevInput,
-                [name]: value,
-            }));
-        }
+        // const { name, value } = e.target;
+        // if (name === "email1") {
+        //     setEmail1(value);
+        // } else if (name === "email2") {
+        //     setEmail2(value);
+        // } else {
+        //     setInput((prevInput) => ({
+        //         ...prevInput,
+        //         [name]: value,
+        //     }));
+        // }
     };
     const handleRoleChange = (e) => {
         const { value, checked } = e.target;
@@ -101,11 +136,11 @@ const CreateCompany = () => {
     const handleLogoChange = (e) => {
         const file = e.target.files[0];
         setInput({ ...input, logo: file });
-        const fileName = file ? file.name : "Drag logo image or click file here";
-        const uploadText = document.getElementById("uploadText");
-        if (uploadText) {
-            uploadText.textContent = fileName;
-        }
+        // const fileName = file ? file.name : "Drag logo image or click file here";
+        // const uploadText = document.getElementById("uploadText");
+        // if (uploadText) {
+        //     uploadText.textContent = fileName;
+        // }
     };
 
     const handleImageDrop = (e) => {
@@ -120,9 +155,9 @@ const CreateCompany = () => {
 
     return (
         <div
-            className="addform"
+            className="companyform"
         >
-            <form className="login-box" onSubmit={handleSubmit} style={{ background: 'darkmagenta' }}>
+            <form className="company-box" onSubmit={handleSubmit} >
                 <Box
                     display="flex"
                     flexDirection="column"
@@ -132,10 +167,10 @@ const CreateCompany = () => {
                     alignSelf="center"
                     marginLeft={"auto"}
                     marginRight="auto"
-                    style={{ width: "100%", background: "darkmagenta" }}
+                    style={{ width: "100%" }}
                 >
                     <Typography variant="h2">Register</Typography>
-                    <div className="user-box" >
+                    <div className="admin-box" >
                         <TextField
                             label="Company Name"
                             style={{ color: "rgb(50, 50, 50)" }}
@@ -153,7 +188,7 @@ const CreateCompany = () => {
                                 label="Number of branches"
                                 style={{ color: "rgb(50, 50, 50)" }}
                                 name="branches"
-                                id="number_field"
+                                id="name_field"
                                 className="input"
                                 //color="white"
                                 type="number"
@@ -166,7 +201,7 @@ const CreateCompany = () => {
                                 label="Number of employees"
                                 style={{ color: "rgb(50, 50, 50)" }}
                                 name="employees"
-                                id="number_field"
+                                id="name_field"
                                 className="input"
                                 //color="white"
                                 type="number"
@@ -182,7 +217,7 @@ const CreateCompany = () => {
                                 style={{ color: "rgb(50, 50, 50)" }}
                                 type="mail-Id"
                                 name="email1"
-                                id="Mail_field"
+                                id="name_field"
                                 className="input"
                                 //color="white"
                                 value={email1}
@@ -195,7 +230,7 @@ const CreateCompany = () => {
                                 style={{ color: "rgb(50, 50, 50)" }}
                                 type="mail-Id"
                                 name="email2"
-                                id="Mail_field"
+                                id="name_field"
                                 className="input"
                                 //color="white"
                                 value={email2}
@@ -207,17 +242,18 @@ const CreateCompany = () => {
                         <TextField
                             label=" company Address"
                             style={{ color: "rgb(50, 50, 50)" }}
-                            type="Address"
-                            name="Address"
+                            type="companyAddress"
+                            name="companyAddress"
                             id="name_field"
                             className="input"
                             //color="white"
-                            //   value={branch}
+                            value={companyAddress}
                             // onChange={(e) => setInput(e.target.value)}
                             onChange={handleChange}
                         />
 
-                        <Select
+                        <TextField
+                            label="Positions"
                             multiple
                             value={role}
                             // onChange={(e) => setRole(e.target.value)}
@@ -225,17 +261,19 @@ const CreateCompany = () => {
                             margin="normal"
                             fullWidth
                             variant="outlined"
+                            id="name_field"
+                            className="input"
                             name="role"
                             style={{
                                 width: "100%",
-                                border: "2px solid white",
+                                // border: "2px solid white",
                                 color: "white",
                             }}
                             renderValue={(selected) =>
                                 Array.isArray(selected) ? selected.join(", ") : ""
                             }
                         >
-                            <FormGroup>
+                            {/* <FormGroup>
                                 <FormControlLabel
                                     control={<Checkbox checked={role.includes('user')} value="user" onChange={handleRoleChange} />}
                                     label="User"
@@ -272,20 +310,165 @@ const CreateCompany = () => {
                                     control={<Checkbox checked={role.includes('proofchecker')} value="proofchecker" onChange={handleRoleChange} />}
                                     label="Proof Checker"
                                 />
-                            </FormGroup>
-                        </Select>
+                            </FormGroup> */}
+                        </TextField>
+
+                        <fieldset className="checkbox-container">
+                            {/* <legend>Positions</legend> */}
+                            <div class="checkbox-row">
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="user"
+                                        name="Role"
+                                        value="user"
+                                        checked={role.includes('user')}
+                                        onChange={handleRoleChange}
+                                    // style={{ transform: "scale(1.5)",color:"blue!imporant" }}
+                                    />
+                                    <label htmlFor="user" style={{ color: 'white' }} >User</label>
+                                </div>
+                                <br />
+
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="superadmin"
+                                        name="Role"
+                                        value="superadmin"
+                                        checked={role.includes('superadmin')}
+                                        onChange={handleRoleChange}
+                                    // style={{ transform: "scale(1.5)" }}
+                                    />
+                                    <label htmlFor="superadmin" style={{ color: 'white' }}>Superadmin</label>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="checkbox-row">
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="admin"
+                                    name="Role"
+                                    value="admin"
+                                    checked={role.includes('admin')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="admin" style={{ color: 'white' }}>Admin</label>
+                            </div>
+                            <br />
+
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="statelevel"
+                                    name="Role"
+                                    value="statelevel"
+                                    checked={role.includes('statelevel')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="statelevel" style={{ color: 'white' }}>statelevel</label>
+                            </div>
+                            <br />
+                            </div>
+
+                            <div class="checkbox-row">
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="districtlevel"
+                                    name="Role"
+                                    value="districtlevel"
+                                    checked={role.includes('districtlevel')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="districtlevel" style={{ color: 'white' }}>Districtlevel</label>
+                            </div>
+                            <br />
+
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="localarea"
+                                    name="Role"
+                                    value="localarea"
+                                    checked={role.includes('localarea')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="localarea" style={{ color: 'white' }}>Localarea</label>
+                            </div>
+                            <br />
+                            </div>
+
+                            <div class="checkbox-row">
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="designers"
+                                    name="Role"
+                                    value="designers"
+                                    checked={role.includes('designers')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="designers" style={{ color: 'white' }}>Designers</label>
+                            </div>
+                            <br />
+
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="designchecker"
+                                    name="Role"
+                                    value="designchecker"
+                                    checked={role.includes('designchecker')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="designchecker" style={{ color: 'white' }}>Designchecker</label>
+                            </div>
+                            <br />
+                            </div>
+
+                            <div class="checkbox-row">
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="proofchecker"
+                                    name="Role"
+                                    value="proofchecker"
+                                    checked={role.includes('proofchecker')}
+                                    onChange={handleRoleChange}
+                                // style={{ transform: "scale(1.5)" }}
+                                />
+                                <label htmlFor="proofchecker" style={{ color: 'white' }}>Proofchecker</label>
+                            </div>
+                            <br />
+                            </div>
+
+                        </fieldset>
 
 
                         <div className="image-upload">
                             <div className="upload-container"
                                 onDrop={handleImageDrop}
                                 onDragOver={handleDragOver}>
-                                <span className="upload-text" id="uploadText" onClick={() => document.getElementById('logoInput').click()}>
-                                    <CloudUploadIcon className="upload-icon" style={{ fontSize: 40, color: 'white' }} />
-                                    <span className="upload-file">Upload Logo</span>
-                                    {/* <br /> */}
-                                    <span>Drag logo image or click file here</span>
-                                </span>
+                                {logo ? (
+                                    <span className="upload-text" id="uploadText" onClick={() => document.getElementById('logoInput').click()}>
+                                        <span className="upload-file">{logo.name}</span>
+                                    </span>
+                                ) : (
+                                    <span className="upload-text" id="uploadText" onClick={() => document.getElementById('logoInput').click()}>
+                                        <CloudUploadIcon className="upload-icon" style={{ fontSize: 40, color: 'white' }} />
+                                        <span className="upload-file">Upload Logo</span>
+                                        {/* <br /> */}
+                                        <span>Drag logo image or click file here</span>
+                                    </span>
+                                )}
                                 <input
                                     id="logoInput"
                                     type="file"
@@ -295,6 +478,16 @@ const CreateCompany = () => {
                                 />
                             </div>
                         </div>
+                        <FormLabel>File</FormLabel>
+                        <input
+                            accept="image/*"
+                            style={{ display: "none" }}
+                            id="raised-button-file"
+                            onChange={(e) => {
+                                setFile(e.target.files[0]);
+                            }}
+                            type="file"
+                        />
 
                         <Button className="btn" type="submit">
                             SUBMIT

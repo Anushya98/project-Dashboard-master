@@ -101,6 +101,14 @@ const Login = ({ history }) => {
             >
               New User
             </Button>
+            <Button
+              className="btn"
+              type="submit"
+              to="/company"
+              LinkComponent={Link}
+            >
+              New Organization
+            </Button>
           </div>
         </Box>
       </form>
