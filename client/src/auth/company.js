@@ -252,69 +252,10 @@ const CreateCompany = () => {
                             onChange={handleChange}
                         />
 
-                        <TextField
-                            label="Positions"
-                            multiple
-                            value={role}
-                            // onChange={(e) => setRole(e.target.value)}
-                            onChange={handleRoleChange}
-                            margin="normal"
-                            fullWidth
-                            variant="outlined"
-                            id="name_field"
-                            className="input"
-                            name="role"
-                            style={{
-                                width: "100%",
-                                // border: "2px solid white",
-                                color: "white",
-                            }}
-                            renderValue={(selected) =>
-                                Array.isArray(selected) ? selected.join(", ") : ""
-                            }
-                        >
-                            {/* <FormGroup>
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('user')} value="user" onChange={handleRoleChange} />}
-                                    label="User"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('superadmin')} value="superadmin" onChange={handleRoleChange} />}
-                                    label="Super admin"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('admin')} value="admin" onChange={handleRoleChange} />}
-                                    label="Admin"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('statelevel')} value="statelevel" onChange={handleRoleChange} />}
-                                    label="State Level"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('districtlevel')} value="districtlevel" onChange={handleRoleChange} />}
-                                    label="District Level"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('localarea')} value="localarea" onChange={handleRoleChange} />}
-                                    label="Local Area"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('designers')} value="designers" onChange={handleRoleChange} />}
-                                    label="Designers"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('designchecker')} value="designchecker" onChange={handleRoleChange} />}
-                                    label="Design Checker"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={role.includes('proofchecker')} value="proofchecker" onChange={handleRoleChange} />}
-                                    label="Proof Checker"
-                                />
-                            </FormGroup> */}
-                        </TextField>
+                       
 
                         <fieldset className="checkbox-container">
-                            {/* <legend>Positions</legend> */}
+                            <legend style={{ color: 'white' }}>Positions</legend>
                             <div class="checkbox-row">
                                 <div>
                                     <input
@@ -330,7 +271,7 @@ const CreateCompany = () => {
                                 </div>
                                 <br />
 
-                                <div>
+                                <div style={{marginLeft:"50px"}}>
                                     <input
                                         type="checkbox"
                                         id="superadmin"
@@ -359,7 +300,7 @@ const CreateCompany = () => {
                             </div>
                             <br />
 
-                            <div>
+                            <div >
                                 <input
                                     type="checkbox"
                                     id="statelevel"
@@ -375,7 +316,7 @@ const CreateCompany = () => {
                             </div>
 
                             <div class="checkbox-row">
-                            <div>
+                            <div >
                                 <input
                                     type="checkbox"
                                     id="districtlevel"
@@ -389,7 +330,7 @@ const CreateCompany = () => {
                             </div>
                             <br />
 
-                            <div>
+                            <div style={{marginRight:"20px"}}>
                                 <input
                                     type="checkbox"
                                     id="localarea"
@@ -419,7 +360,7 @@ const CreateCompany = () => {
                             </div>
                             <br />
 
-                            <div>
+                            <div style={{marginLeft:"40px"}}>
                                 <input
                                     type="checkbox"
                                     id="designchecker"
